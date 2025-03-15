@@ -1,19 +1,8 @@
 import { ReactNode } from 'react';
 
 import type { Metadata } from 'next';
-import { Roboto, Roboto_Mono } from 'next/font/google';
+import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  variable: '--font-roboto-sans',
-  weight: ['100', '300', '400', '500', '700', '900'],
-});
-const robotoMono = Roboto_Mono({
-  subsets: ['latin'],
-  variable: '--font-roboto-mono',
-  weight: ['100', '300', '400', '500', '700'],
-});
 
 export const metadata: Metadata = {
   title: 'CarHub',
@@ -28,10 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${roboto.variable} ${robotoMono.variable} flex h-screen flex-col antialiased`}
-      >
+      <body className={`bg-[#EBF2F7] antialiased`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );
