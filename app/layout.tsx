@@ -3,6 +3,9 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/sonner';
 import './globals.css';
+import RegisterDialog from '@/components/auth/RegisterDialog';
+import { NuqsAdapter } from 'nuqs/adapters/react';
+import LoginDialog from '@/components/auth/LoginDialog';
 
 export const metadata: Metadata = {
   title: 'CarHub',
@@ -21,8 +24,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className={`bg-[#EBF2F7] antialiased`}>
-        {children}
-        <Toaster />
+        <NuqsAdapter>
+          <RegisterDialog />
+          <LoginDialog />
+          {children}
+          <Toaster />
+        </NuqsAdapter>
       </body>
     </html>
   );
